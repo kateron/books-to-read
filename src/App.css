@@ -1,33 +1,109 @@
-.App {
-  text-align: center;
+@import 'https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css';
+@import 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.css';
+body{
+	background: repeating-linear-gradient(
+		45deg,
+	  	rgba(138, 105, 255, 0.1),
+	  	rgba(138, 105, 255,0.1) 1em,
+	  	rgba(138, 105, 255,0.2) 1em,
+	 	rgba(138, 105, 255,0.2) 2em
+	);
+	min-height: 100vh;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
+
+.books{
+	display: flex;
+	flex-wrap: wrap;
+	
+}
+.book{
+	flex: 0 0 18em;
+	border:thin rgb(138, 105, 255) solid;
+	border-radius: 0.5em;
+	margin:1em;
+	background-color: #fff;
+	position: relative;
+}
+.book:after{
+	content:'';
+	display: block;
+	padding-top: 100%;
+}
+.book-body{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top:0;
+	left:0;
+	padding:0.75em;
+	box-sizing: border-box;
+	display: flex;
+	flex-direction: column;
+	/* flex-wrap: wrap; */
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.book-remove{
+	color: rgb(138, 105, 255);
+	font-size: 1em;
+	position: absolute;
+	top:0.5em;
+	right:0.5em;
 }
 
-.App-link {
-  color: #61dafb;
+.book-genre{
+	color: rgb(138, 105, 255);
+	flex: 0 0 auto;
+	font-size: 2em;
+	align-self: center;
+	margin: 0.5em 0;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.book-title{
+	/* margin-top: 1em; */
+	flex: 0 0 auto;
+	display: block;
+	text-align: center;
+	font-size: 0.9em;
+	line-height: 1.2em;
+	margin: 0.2em 1.25em;
+}
+
+.book-synopsis{
+	font-size: 0.7em;
+	color: rgb(138, 105, 255);
+	font-style: italic;
+	text-align: left;
+  flex: 1 0 3em;
+  overflow-y: scroll;
+	margin: 1.25em 1.75em;
+	/* border: 1px solid red; */
+
+
+}
+
+.book-status{
+	display: flex;
+	font-size: 0.65em;
+	justify-content: center;
+	margin:  0;
+}
+
+.book-status>button{
+	margin: 0 0.5em;
+	font-size: 1em;
+}
+
+.btn.btn-primary,.btn.btn-primary:hover,.btn.btn-primary:active:focus{
+	background-color: rgba(138, 105, 255, 0.582);
+	border-color:rgb(138, 105, 255);
+	box-shadow: none !important;
+}
+.form-control:focus{
+	border-color:rgb(138, 105, 255);
+	box-shadow: none;
+}
+
+.book.new-book{
+	flex: 0 0 25em;
 }
