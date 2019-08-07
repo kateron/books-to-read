@@ -49,8 +49,28 @@ class App extends Component{
     this.setState({books: newBooks});
   }
 
-  removeBook = (id) =>{}
-  updateBook = (id,data)=>{}
+  removeBook = (id) => {
+    var books = this.state.books;
+    var filtered = books.filter( (book) => {
+      return book.id !== id
+    });
+    this.setState({books:filtered});
+  }
+
+
+  updateBook = (id,data)=>{
+
+  
+    var books = this.state.books;
+    var index = books.findIndex((book)=>{
+      return book.id === id
+    });
+    var updatedBook = {...books[index],...data};
+    // console.log(updatedBook)
+    books[index] = updatedBook;
+    this.setState({books:books});
+
+  }
   
   render(){
     return(
@@ -64,10 +84,11 @@ class App extends Component{
                   var bookProps = {
                     ...book,
                     key: book.id,
+                    removeBook: this.removeBook,
 
                   }
                   return(
-                    <Book {...bookProps}/>
+                    <Book {...bookProps} removeBook={this.removeBook} updateBook={this.updateBook}/>
                   )
                   
                 }
